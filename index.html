@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudo APIs Geolocalização</title>
+</head>
+
+<body>
+    <center><p id="demo">Clique no botão para receber sua localização em Latitude e Longitude:</p>
+    <button onclick="maps()">Maps</button></center>
+
+    <script>
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        }
+
+        var x = document.getElementById("demo");
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                x.innerHTML = "O seu navegador não suporta Geolocalização.";
+            }
+        }
+
+        function showPosition(position) {
+            x.innerHTML = "Latitude: " + position.coords.latitude +
+                "<br>Longitude: " + position.coords.longitude;
+
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+        }
+
+        function maps(latitude, longitude) {
+            location.replace("http://maps.google.com/?ie=UTF8&hq=&ll=" + latitude + ',' + longitude);
+        }
+    </script>
+
+</body>
+
+</html>
