@@ -13,6 +13,9 @@
     <button onclick="maps()">Maps</button></center>
 
     <script>
+
+        //Verifica se o navegador possui a geolocalizacao
+        
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPosition);
         }
@@ -39,7 +42,7 @@
             location.replace("http://maps.google.com/?ie=UTF8&hq=&ll=" + latitude + ',' + longitude);
         }
     </script>
-
+    
 </body>
 
 </html>
